@@ -1,0 +1,29 @@
+# ls shortcuts and config
+#########################
+alias ls="ls --color=auto"
+alias ll="ls -lahG"
+
+# Git shortcuts
+###############
+alias gpl="git pull --rebase"
+alias gph="git push"
+alias ga="git add"
+alias gaa="git add -A"
+alias gc="git commit -S -m"
+alias git-delete-merged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d' # Removes from local repo branches tha are already merged in origin
+alias git-sign-old="git filter-branch -f --commit-filter 'git commit-tree -S "$@"' HEAD" # Signs old commits with GPG key
+
+# Kubernetes
+############
+alias pods-stg-k8s="kubectl --namespace=staging get pods"
+alias tunnel-stg-k8s="kubectl --namespace=staging port-forward"
+
+# Other tools
+#############
+alias vi="vim"
+alias awsume="source awsume"
+
+# Utils
+#######
+alias update="sudo apt update && sudo apt upgrade && sudo apt autoremove"
+alias self-signed-cert="openssl req -x509 -nodes -new -sha256 -days 3650 -newkey rsa:4096 -keyout privkey.key -out cert.pem" # Generates a self-signed cert with 10 years expiry
