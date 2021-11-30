@@ -20,3 +20,4 @@ export GPG_TTY=(tty)
 
 starship init fish | source
 zoxide init fish   | source
+fnm env            | source
