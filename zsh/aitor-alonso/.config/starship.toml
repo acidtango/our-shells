@@ -1,0 +1,97 @@
+# For more options or guide see: https://starship.rs/config
+
+add_newline = true
+format = "$all"
+right_format = "$time"
+
+[username]
+show_always = true
+style_user = "bold yellow"
+style_root = "bold red"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = true
+trim_at = "."
+format = "[@$hostname]($style)"
+style = "bold green"
+
+[directory]
+truncation_length = 0
+format = " [$path]($style)[$read_only]($read_only_style) "
+read_only = " (🔒)"
+style = "bold purple"
+read_only_style = "bold red"
+
+[git_branch]
+format = "on [$symbol$branch]($style) "
+symbol = " "
+style = "cyan"
+
+[git_status]
+format = "(([$ahead_behind](white)[$conflicted](bold yellow) )([$stashed](white)[$untracked](red)[$modified](yellow)[$staged](green)[$renamed](cyan)[$deleted](red) ))"
+ahead = "⇡$count"
+behind = "⇣$count"
+diverged = "⇡$ahead_count⇣$behind_count"
+conflicted = "⚡︎"
+stashed = "●"
+untracked = "●"
+modified = "●"
+staged = "●"
+renamed = "»"
+deleted = "✘"
+style = ""
+
+[nodejs]
+format = "via [$symbol($version )]($style)"
+version_format = "v${raw}"
+symbol = "📦 "
+style = "green"
+
+[python]
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format = "v${raw}"
+symbol = "🐍 "
+style = "yellow"
+
+[java]
+format = "via [${symbol}(${version} )]($style)"	
+version_format = "v${raw}"
+symbol = "☕ "
+style = "red dimmed"
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )(\[$duration\])]($style)'
+symbol = "☁️  "
+style = "blue"
+
+#[aws.region_aliases]
+#eu-west-1 = "euw1"
+
+[docker_context]
+format = "via [$symbol$context]($style) "
+symbol = "🐳 "
+style = "cyan"
+
+[cmd_duration]
+min_time = 5_000
+format = "took [$duration]($style) "
+style = "yellow"
+
+[time]
+disabled = false
+format = '[\($time\)]($style) '
+style = "yellow"
+time_format = "%T"
+utc_time_offset = "+1"
+
+[status]
+disabled = false
+format = "[$symbol $status]($style) "
+style = "bold red"
+
+[character]
+format = "$symbol "
+success_symbol = "[❯](blue)"
+error_symbol = "[❯](bold red)"
+

@@ -1,7 +1,10 @@
-# ls shortcuts and config
-#########################
-alias ls="ls --color=auto"
-alias ll="ls -lahG"
+# unix tools with steroids
+##########################
+function ls() { case $* in -la* ) shift 1; command exa -lahG "$@" ;; * ) command exa "$@" ;; esac }
+alias tree="ls -T"
+alias cat="batcat"
+alias find="fdfind"
+alias top="htop"
 
 # Git shortcuts
 ###############
@@ -15,8 +18,7 @@ alias git-sign-old="git filter-branch -f --commit-filter 'git commit-tree -S "$@
 
 # Kubernetes
 ############
-alias pods-stg-k8s="kubectl --namespace=staging get pods"
-alias tunnel-stg-k8s="kubectl --namespace=staging port-forward"
+function dbproxy() { kubectl --namespace=staging port-forward $(kubectl --namespace=staging get pods | awk '/db-proxy/ {printf $1}') 5432:5432 }
 
 # Other tools
 #############

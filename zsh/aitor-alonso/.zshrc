@@ -1,42 +1,31 @@
 ### ZSH options
 ###############
-source ~/.zsh/config/options.zsh
+source ~/.config/zsh/options.zsh
 
 ### Load colors
 ###############
-source ~/.zsh/config/colors.zsh
+source ~/.config/zsh/colors.zsh
 
 ### Bind keys
 ##############
-source ~/.zsh/config/bindkeys.zsh
+source ~/.config/zsh/bindkeys.zsh
 
 ### Completions
 ###############
-source ~/.zsh/config/completions.zsh
+source ~/.config/zsh/completions.zsh
 
 ### Plugins
 ###########
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
-source ~/.zsh/plugins/git-status/git-status.plugin.zsh
-
-### Prompt
-##########
-source ~/.zsh/config/prompt.zsh
+source ~/.config/zsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+# source ~/.config/zsh/plugins/git-status/git-status.plugin.zsh # Using starship git plugin
 
 ### Aliases and environment variables
 #####################################
 source $HOME/.aliases
 source $HOME/.env
 
-# JAVA JDK
-# ########
-if [[ -e /usr/lib/jvm/java-11-openjdk-amd64 ]]; then
-  export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-  export PATH="$PATH:$JAVA_HOME/bin"
-fi
-
-# NVM
-#####
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+### Prompt
+##########
+# source ~/.config/zsh/prompt.zsh
+eval "$(starship init zsh)"

@@ -10,8 +10,10 @@ Main features are:
 - Man pages with colors to an easier reading
 - Shows exit code when it differs from zero
 - Syntax highlighting for cli commands and reserved words like for, do, done, if, etc.
-- Git status info in prompt
+- Starship prompt
+- Git status info in prompt (previously used a plugin, now relies on Starship prompt)
 - Auto-correct typos when running a command
+- Shared history among terminals
 
 See `.zsh/config/options.zsh` for a quick look to native ZSH options set.
 
